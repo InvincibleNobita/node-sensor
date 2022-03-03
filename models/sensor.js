@@ -5,6 +5,10 @@ const sensorSchema = new mongoose.Schema({
     //     type: Number,
     //     unique: true
     // },
+    row:{
+        type: Number,
+        unique: true
+    },
     sensorId: {
         type: String,
         required: true

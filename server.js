@@ -33,8 +33,10 @@ app.get("/", async (req, res) => {
 app.post("/", async (req, res) => {
     try {
         console.log(req.body);
-        const data = { ...req.body }
+        const data = { ...req.body };
         const newSensor = new Sensor(data)
+        const arr = await Sensor.find();
+        newSensor.row = arr.length + 1;
         await newSensor.save()
         res.send("Data appended successfully")
     } catch (err) {
